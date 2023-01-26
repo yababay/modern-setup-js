@@ -1,0 +1,22 @@
+{
+  "name": "please-fulfill",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Please fulfill",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "postinstall": "npx tsc --init && npx ts-jest config:init && git init && ./node_modules/.bin/husky install && npx husky add .husky/pre-commit 'npm test' && git add . && git commit -am first",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/globals": "^29.4.0",
+    "@types/jest": "^29.4.0",
+    "husky": "^8.0.3",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4"
+  }
+}
