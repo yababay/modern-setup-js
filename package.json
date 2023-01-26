@@ -13,8 +13,17 @@
     "build": "tsc",
     "push": "npm publish --access public"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yababay/modern-setup-js.git"
+  },
+  "keywords": [
+    "js",
+    "ts",
+    "jest",
+    "husky"
+  ],
+  "author": "Михаил Беляков (Michael Belyakov)",
   "license": "ISC",
   "devDependencies": {
     "@jest/globals": "^29.4.0",
