@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "description": "Please fulfill",
-  "main": "index.js",
   "scripts": {
+    "_tsc": "npx tsc --init",
+    "_ts_jest": "npx ts-jest config:init",
+    "_husky_init": "./node_modules/.bin/husky install",
+    "_husky_test": "npx husky add .husky/pre-commit 'npm test'",
+    "_husky_lint": "npx husky add .husky/pre-commit 'lint-staged'",
+    "_husky": "npm run _husky_init && npm run _husky_test && npm run _husky_lint",
+    "_git": "git add . && git commit -am first",
+    "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git",
     "test": "jest",
-    "postinstall": "npx tsc --init && npx ts-jest config:init && git init && ./node_modules/.bin/husky install && npx husky add .husky/pre-commit 'npm test' && npx husky add .husky/pre-commit 'lint-staged' && git add . && git commit -am first",
     "build": "tsc"
   },
   "lint-staged": {
