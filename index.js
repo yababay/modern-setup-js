@@ -28,8 +28,10 @@ fs.renameSync(
   path.join(projectDir, '.gitignore')
 );
 
-const indexFile = path.join(projectDir, 'index.js');
-fs.unlinkSync(indexFile);
+let unwantedFile = path.join(projectDir, 'index.js');
+fs.unlinkSync(unwantedFile );
+unwantedFile = path.join(projectDir, 'LICENSE');
+fs.unlinkSync(unwantedFile );
 
 console.log("\nSuccess! Your new project is ready.");
 console.log("Please execute in your terminal:\n");

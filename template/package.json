@@ -11,6 +11,10 @@
     "_husky_lint": "npx husky add .husky/pre-commit 'lint-staged'",
     "_husky": "npm run _husky_init && npm run _husky_test && npm run _husky_lint",
     "_git": "git add . && git commit -am first",
+    "_spoil": "echo 'export default (a: number, b: number): number => a + b * -1' > ./src/main.ts",
+    "spoil": "npm run _spoil && git commit -am spoiled",
+    "_repair": "echo 'export default (a: number, b: number): number => a + b' > ./src/main.ts",
+    "repair": "npm run _spoil && git commit -am repaired",
     "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git",
     "test": "jest",
     "build": "tsc"
