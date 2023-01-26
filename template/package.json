@@ -6,8 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "postinstall": "npx tsc --init && npx ts-jest config:init && git init && ./node_modules/.bin/husky install && npx husky add .husky/pre-commit 'npm test' && git add . && git commit -am first",
+    "postinstall": "npx tsc --init && npx ts-jest config:init && git init && ./node_modules/.bin/husky install && npx husky add .husky/pre-commit 'npm test' && npx husky add .husky/pre-commit 'lint-staged' && git add . && git commit -am first",
     "build": "tsc"
+  },
+  "lint-staged": {
+      { "*.ts": "eslint" }
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,10 @@
     "@types/jest": "^29.4.0",
     "husky": "^8.0.3",
     "ts-jest": "^29.0.5",
+    "lint-staged": "^13.1.0",
+    "eslint": "^8.32.0",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.4"
   }
 }
+
