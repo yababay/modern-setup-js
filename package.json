@@ -1,6 +1,6 @@
 {
   "name": "cheburgen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "Setup for a project with typescript and jest support",
   "bin": {
