@@ -18,7 +18,7 @@
     "repair": "npm run _repair && git commit -am repaired",
     "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _tw && npm run _git",
     "test": "jest",
-    "run": "nodemon index.ts",
+    "dev": "nodemon ./index.ts",
     "build": "tsc"
   },
   "keywords": [],
@@ -37,6 +37,7 @@
     "prettier": "^2.8.3",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   }
 }

@@ -11,6 +11,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const projectName = process.argv[2];
+if(!projectName) {
+    console.log("\nOops... It seems you forgot to point a project name.\n")
+    process.exit(1)
+}
 
 const currentDir = process.cwd();
 const projectDir = path.resolve(currentDir, projectName);
@@ -37,6 +41,6 @@ console.log("\nSuccess! Your new project is ready.");
 console.log("Please execute in your terminal:\n");
 console.log(`    cd ${projectName}`);
 console.log("    npm i");
-console.log("    code . # if you use it");
+console.log("    npm run dev");
 console.log("\nDon't forget to edit your package.json!\n");
 
