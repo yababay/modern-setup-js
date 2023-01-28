@@ -4,20 +4,6 @@ import { RenderingSettings, SeoProperties } from '../types/settings'
 
 const projectDir = process.cwd()
 
-function prepareErrors(path: string): Error[] {
-    const array = JSON.parse(readFileSync(path, 'utf8'))
-    if (!Array.isArray(array)) throw 'Не удалось прочитать описания ошибок.'
-    return array.map(el => {
-        if (!Array.isArray(el)) throw 'Не удалось прочитать описание ошибки.'
-        const [message, cause] = el
-        if (typeof message !== 'string') throw 'Не удалось прочитать сообщение ошибки.'
-        if (typeof cause !== 'number') throw 'Не удалось прочитать код ошибки.'
-        const error = new Error(message)
-        Reflect.set(error, 'cause', cause)
-        return error
-    })
-}
-
 function prepareMimetypes(path: string): Map<string, string> {
     const array = JSON.parse(readFileSync(path, 'utf8'))
     if (!Array.isArray(array)) throw 'Не удалось прочитать описания mime-типов.'
@@ -49,20 +35,14 @@ const publicDir = path.resolve(projectDir, 'public')
 const pagesDir = path.resolve(srcDir, 'pages')
 
 const settingsPath = path.resolve(srcDir, 'settings.json')
-const errorsPath = path.resolve(libDir, 'errors.json')
 const mimetypesPath = path.resolve(libDir, 'mime-types.json')
-const cssUrl = '/styles.css'
-const cssPath = path.resolve(srcDir, cssUrl.substring(1))
+const cssFile = 'styles.css'
+const cssInput = path.resolve(srcDir, cssFile)
+const cssOutput = path.resolve(publicDir, cssFile)
 
 const settings = prepareSettings(settingsPath)
 const mimetypes = prepareMimetypes(mimetypesPath)
 const extensions = Array.from(mimetypes.keys())
-
-const [
-    ERROR_RESOURCE_NOT_FOUND,
-    ERROR_ILLEGAL_MIMETYPE,
-    ERROR_RENDERER_NOT_FOUND
-] = prepareErrors(errorsPath)
 
 function getStringFromSettings(key: string): string{
     const value = settings.get(key)
@@ -92,15 +72,14 @@ const seo: SeoProperties = {
     year: getNumberFromSettings('year'),
 }
 
-export const output: RenderingSettings = {
+const output: RenderingSettings = {
     publicDir,
     pagesDir,
+    cssInput,
+    cssOutput,
     mimetypes,
     extensions,
-    seo,
-    ERROR_RESOURCE_NOT_FOUND,
-    ERROR_ILLEGAL_MIMETYPE,
-    ERROR_RENDERER_NOT_FOUND
+    seo
 }
 
 export default output
