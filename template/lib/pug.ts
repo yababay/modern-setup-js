@@ -4,6 +4,7 @@ import showdown from 'showdown'
 
 import settings from './settings'
 import { Renderer } from '../types/renderer'
+import { ERROR_TEMPLATE_NOT_FOUND, ERROR_MARKDOWN_NOT_FOUND } from './errors'
 
 const { pagesDir, seo } = settings
 const { Converter } = showdown
@@ -17,7 +18,7 @@ const rendererPug: Renderer = (url: string, context = {}): string => {
 
 function getOptions(url: string){
   let pathReg = /(.*)\/[^\/]+$/.exec(url)
-  if(!pathReg) throw Error(`File is not found: ${url}.`)
+  if(!pathReg) throw ERROR_TEMPLATE_NOT_FOUND(url)
   const path = pathReg[1]
   return {
     filters: {
@@ -37,7 +38,7 @@ export function parsePug(url: string, options = {}, locals = {}){
 
 export function parseMarkdown(url: string){
   const fn = `${pagesDir}${url}`
-  if(!existsSync(fn)) throw Error(`Markdown file is not found: ${fn}`)
+  if(!existsSync(fn)) throw ERROR_MARKDOWN_NOT_FOUND(url)
   const text = readFileSync(fn, 'utf8')
   return converter.makeHtml(text)
 }

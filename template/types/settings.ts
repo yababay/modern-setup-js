@@ -19,8 +19,8 @@ export interface RenderingSettings {
 
     pagesDir: string
     publicDir: string
-    cssInput: string
-    cssOutput: string
+    stylesDir: string
+    iconsDir: string
 
     mimetypes: Map<string, string>
     extensions: string[]

@@ -1,7 +1,8 @@
 import express, { Request, Response, NextFunction }  from 'express'
 import settings from './lib/settings'
 import styles from './lib/styles'
-import renderer from './lib/renderer'
+import errors from './lib/errors'
+import router from './lib/router'
 
 const { publicDir } = settings
 
@@ -10,10 +11,8 @@ const { publicDir } = settings
   const app = express()
   app.use('/styles.css', styles)
   app.use(express.static(publicDir))
-  app.use('*', renderer)
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    res.status(200).contentType('text/plain').end('Hello, World')
-  })
+  app.use('/', router)
+  app.use(errors)
   app.listen(5173)
 
 })()

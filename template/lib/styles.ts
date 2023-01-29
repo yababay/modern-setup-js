@@ -1,20 +1,25 @@
-import { readFile } from 'fs/promises'
 import { Request, Response, NextFunction} from 'express'
-import autoprefixer  from 'autoprefixer'
-import postcss from 'postcss'
-import tailwind from 'tailwindcss'
+import sass from 'sass'
+import { prepareUrl, existsAndIsFile } from './util'
 
+import { ERROR_CSS_IS_INCORRECT } from './errors'
 import settings from './settings'
 
-const { cssInput } = settings
-
-let cache: string
+const { stylesDir } = settings
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    return await readFile(cssInput, 'utf8')
-    .then(data => postcss([tailwind, autoprefixer]).process(data, {from: cssInput}))
-    .then(data => {
-        if(!cache) cache = data.css
-       res.status(200).contentType('text/css').end(cache)
-    })
+    try {
+        let url = prepareUrl(req)
+        if(!url.endsWith('.css')) return next()
+        if(existsAndIsFile(url, stylesDir)) return res.sendFile(`${stylesDir}${url}`)
+        url = url.slice(0, -4) + '.scss'
+        if(!existsAndIsFile(`${url}`, stylesDir)) throw ERROR_CSS_IS_INCORRECT(url)
+        let styles = sass.compile(`${stylesDir}${url}`, {style: "compressed"})
+        res.status(200)
+        res.contentType('text/css')
+        res.end(styles.css)
+    }
+    catch(err){
+        next(err)
+    }
 }

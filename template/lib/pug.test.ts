@@ -1,4 +1,4 @@
-import rendererPug, { parseMarkdown, parsePug } from './renderer-pug'
+import rendererPug, { parseMarkdown, parsePug } from './pug'
 
 test('Check parsing methods', () => {
     let output = parsePug('/do-not-remove-this/index.pug')

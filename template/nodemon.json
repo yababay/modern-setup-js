@@ -1,0 +1,16 @@
+{
+    "verbose": false,
+    "watch": [
+      "src",
+      "public"
+    ],
+    "ext": "ts,css,pug",
+    "ignore": [
+      "*.test.ts"
+    ],
+    "delay": "3",
+    "execMap": {
+      "ts": "ts-node",
+      "css": "npx tailwindcss -i ./src/styles.css -o ./public/styles.css"
+    }
+}

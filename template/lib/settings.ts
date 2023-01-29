@@ -30,15 +30,14 @@ function prepareSettings(path: string): Map<string, string | number> {
 }
 
 const srcDir = path.resolve(projectDir, 'src')
+const iconsDir = path.resolve(projectDir, 'node_modules/bootstrap-icons')
+const stylesDir = path.resolve(srcDir, 'styles')
 const libDir = path.resolve(projectDir, 'lib')
 const publicDir = path.resolve(projectDir, 'public')
 const pagesDir = path.resolve(srcDir, 'pages')
 
 const settingsPath = path.resolve(srcDir, 'settings.json')
 const mimetypesPath = path.resolve(libDir, 'mime-types.json')
-const cssFile = 'styles.css'
-const cssInput = path.resolve(srcDir, cssFile)
-const cssOutput = path.resolve(publicDir, cssFile)
 
 const settings = prepareSettings(settingsPath)
 const mimetypes = prepareMimetypes(mimetypesPath)
@@ -75,8 +74,8 @@ const seo: SeoProperties = {
 const output: RenderingSettings = {
     publicDir,
     pagesDir,
-    cssInput,
-    cssOutput,
+    stylesDir,
+    iconsDir,
     mimetypes,
     extensions,
     seo

@@ -1,0 +1,47 @@
+header {
+    position: relative;
+    text-align: right;
+    height: $header-height;
+    line-height: $header-height;
+    menu {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        display: inline-block;
+        &:first-child {
+            font-size: var(--font-size-md);
+            line-height: var(--line-height-md);
+            display: block;
+            left: 1.5rem;
+            top: calc((var(--header-height) - var(--line-height-md)) / 2);
+            position: absolute;
+            text-align: left;
+            .logo, .motto {
+                display: inline-block;
+            }
+            .logo {
+                background-image: url(img/logo.svg);
+                width: var(--line-height-md);
+                height: var(--line-height-md);
+            }
+            .motto {
+                display: inline-block;
+                margin-left: .5rem;
+            }
+        }
+        &:last-child {
+            margin-right: 1.5rem;
+            ul {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                width: 100%;
+                li {
+                    margin-right: 1rem;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

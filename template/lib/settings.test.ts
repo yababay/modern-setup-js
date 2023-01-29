@@ -6,8 +6,7 @@ const {
     mimetypes,
     extensions,
     seo,
-    cssInput,
-    cssOutput
+    stylesDir
 } = settings
 
 const {
@@ -47,8 +46,7 @@ test('SEO keys should be set up', () => {
 test('Files and directories sould exist', () => {
     expect(existsSync(publicDir) && lstatSync(publicDir).isDirectory()).toBeTruthy()
     expect(existsSync(pagesDir) && lstatSync(pagesDir).isDirectory()).toBeTruthy()
-    expect(existsSync(cssInput) && lstatSync(cssInput).isFile()).toBeTruthy()
-    expect(existsSync(cssOutput) && lstatSync(cssOutput).isFile()).toBeTruthy()
+    expect(existsSync(stylesDir) && lstatSync(stylesDir).isDirectory()).toBeTruthy()
     expect(mimetypes.get('jpg')).toBe('image/jpeg')
     expect(extensions.includes('png')).toBeTruthy()
 })

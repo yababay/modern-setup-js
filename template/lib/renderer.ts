@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction} from 'express'
 import { Renderer } from '../types/renderer'
-import rendererPug from './renderer-pug'
-import { existsAndIsDirectory, existsAndIsFile } from './util'
-import settings from './settings'
-const { pagesDir } = settings
+import rendererPug from './pug'
+import { existsAndIsDirectory, existsAndIsFile, prepareUrl } from './util'
+import { ERROR_NO_RENDERER_FOUND } from './errors'
 
 const renderers = new Map<string | undefined, Renderer>([
     ['pug', rendererPug]
@@ -23,13 +22,18 @@ export function render(url: string, context: object): string {
         const render = renderers.get(key)
         if(render) return render(`${renderUrl}`, context)
     }
-    throw Error('Renderer is not found')
+    throw ERROR_NO_RENDERER_FOUND(url)
 }
 
 export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const url = req.originalUrl
-    if(typeof url !== 'string') throw Error('Resource is not found.')
-    const html = render(url, req.query)
-    res.status(200).contentType('text/html').end(html)
+    try {
+        const url = prepareUrl(req)
+        const html = render(url, req.query)
+        res.status(200)
+        res.contentType('text/html')
+        res.end(html)
+    }
+    catch(err){
+        next(err)
+    }
 }
-
