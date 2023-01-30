@@ -1,15 +1,24 @@
-import express, { Request, Response, NextFunction }  from 'express'
+import express from 'express'
+import livereload from 'livereload'
+import connectLiveReload from 'connect-livereload'
+
 import settings from './lib/settings'
-import styles from './lib/styles'
-import errors from './lib/errors'
-import router from './lib/router'
+import errors   from './lib/errors'
+import router   from './lib/router'
 
 const { publicDir } = settings
+
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
 
 ;(async function () {
 
   const app = express()
-  app.use('/styles.css', styles)
+  app.use(connectLiveReload())
   app.use(express.static(publicDir))
   app.use('/', router)
   app.use(errors)

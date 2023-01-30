@@ -4,7 +4,7 @@ export interface SeoProperties {
     robots: string
     description: string
     title: string
-    motto: string
+    // motto: string
     author: string
     og_type: string
     og_title: string

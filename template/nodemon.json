@@ -2,15 +2,15 @@
     "verbose": false,
     "watch": [
       "src",
+      "lib",
       "public"
     ],
-    "ext": "ts,css,pug",
+    "ext": "ts,scss,sass,pug,json",
     "ignore": [
       "*.test.ts"
     ],
     "delay": "3",
     "execMap": {
-      "ts": "ts-node",
-      "css": "npx tailwindcss -i ./src/styles.css -o ./public/styles.css"
+      "ts": "ts-node"
     }
 }
