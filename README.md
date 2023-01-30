@@ -24,7 +24,7 @@ npm run postinstall
 То же самое можно выполнить с помощью одной команды:
 
 ```
-npx @yababay67/modern-setup <my-app>
+npx @yababay67/modern-setup@latest <my-app>
 ```
 
 Замените `<my-app>` именем директории (папки),
