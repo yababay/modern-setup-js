@@ -23,7 +23,7 @@ npm run postinstall
 You can do the same work just installing this template with the command
 
 ```
-npx @yababay67/modern-setup <my-app>
+npx @yababay67/modern-setup@latest <my-app>
 ```
 
 Please replace `<my-app>` with name of directory in which
