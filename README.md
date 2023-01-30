@@ -1,13 +1,14 @@
-# Modern setup from scratch
+# Шаблон для разработки на TypeScript
 
 ![Скриншот](./bender-rodriguez.jpg)
 
 
-## From scratch
+## С чистого листа
 
-If you want to create modern JavaScript project
-with Typescript and unit testing support,
-please execute following commands in your terminal:
+Этот шаблон, оптимизированный для разработки на TypeScript
+с преднастроенным тестированием (`Jest`) и проверкой кода 
+перед коммитами (`husky` + `lint-staged`), можно создать
+выполнив следующую последовательность команд в терминале:
 
 ```
 npm init -y
@@ -18,30 +19,46 @@ npm pkg set scripts.postinstall="npx tsc --init && npx ts-jest config:init && gi
 npm run postinstall
 ```
 
-## Install the template
+## Установка шаблона
 
-You can do the same work just installing this template with the command
+То же самое можно выполнить с помощью одной команды:
 
 ```
 npx @yababay67/modern-setup <my-app>
 ```
 
-Please replace `<my-app>` with name of directory in which
-you will develop a project. After installing you should edit 
-the `pachage.json` file inside the selected directory.
+Замените `<my-app>` именем директории (папки),
+в которой будет вестить разработка. После установки 
+следует отредактировать `pachage.json`, вписав название проекта,
+автора, лицензию, версию и т.п.
 
-## Playground
+## Что входит в состав
 
-To see how the system protect you code rejectind 
-modules of poor quality please execute
+В шаблоне настроены:
+
+* возможность писать код на TypeScript с проверкой типов;
+* юнит-тестирование средствами `Jest` без проблем с подсветкой синтаксиса;
+* проверка кода на добротность (`jest + eslint`) перед коммитом; для этого
+    использованы возможности пакета `husky`.
+
+## Испортить и починить
+
+Чтобы увидеть, как данная система следит за качеством кода, 
+можно выполнить команду. Тесты перестанут проходить и будет
+невозможно сделать коммит, не изменив настройки.
 
 ```
 npm run spoil
 ```
 
-To repair things run
+Чтобы вернуть проект в работоспособное состояние, выполните
 
 ```
 npm run repair
 ```
+
+## Пользователям `Windows`
+
+Данный проект тестировался в среде `Linux`. Пользователи `Windows`
+могут самостоятельно подправить скрипты, если это необходимо.
 
