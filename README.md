@@ -1,6 +1,6 @@
 # Modern setup from scratch
 
-![Скриншот](./bender-rodriguez.jpg)
+![Скриншот](./cheburgen.jpg)
 
 
 ## From scratch

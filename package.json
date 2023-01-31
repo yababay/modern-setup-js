@@ -1,29 +1,29 @@
 {
-  "name": "cheburgen",
-  "version": "0.0.6",
+  "name": "cheburgen-setup",
+  "version": "0.0.0",
   "private": false,
-  "description": "Setup for a project with typescript and jest support",
+  "description": "Server side server and generator.",
   "bin": {
-    "cheburgen": "./index.js"
+    "cheburgen-setup": "./index.js"
   },
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "push": "git add . && git commit -am publish && git push origin cheburgen && npm publish --access public"
+    "push": "git add . && git commit -am publish && git push origin cheburgen-pug && npm publish --access public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yababay/modern-setup-js.git"
+    "url": "https://github.com/yababay/cheburgen-js.git"
   },
   "keywords": [
+    "pug",
+    "scss",
+    "ssg",
+    "ssr",
     "js",
-    "ts",
-    "jest",
-    "express",
-    "tailwind",
-    "husky"
+    "express"
   ],
   "author": "Михаил Беляков (Michael Belyakov)",
   "license": "ISC",
