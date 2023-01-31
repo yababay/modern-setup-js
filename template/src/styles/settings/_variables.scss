@@ -21,12 +21,15 @@ $media-breakpoints: (
 
 $default-min-bp: map.get($media-breakpoints, "mobile");
 $default-max-bp: map.get($media-breakpoints, "large");
+$burger-bp: 700px;
 
 $header-height: 3rem;
 $footer-height: 2rem;
 $main-min-height: calc(100vh - var(--header-height) - var(--footer-height));
 
 $line-height-ratio: 1.42857;
+$icon-width-ratio:  .65;
+$icon-height-ratio: .5;
 
 :root {
     --header-height:    #{$header-height};
@@ -45,6 +48,8 @@ $line-height-ratio: 1.42857;
       $min: $type-base-min * math.pow($type-scale-min, $power);
       $max: $type-base-max * math.pow($type-scale-max, $power);
       --font-size-#{$step}: #{clamped($min, $max)};
-      --line-height-#{$step}: calc(var(--font-size-#{$step}) * #{$line-height-ratio});
+      --line-height-#{$step}: calc(var(--font-size-#{$step})   * #{$line-height-ratio});
+      --icon-width-#{$step}:  calc(var(--line-height-#{$step}) * #{$icon-width-ratio});
+      --icon-height-#{$step}: calc(var(--line-height-#{$step}) * #{$icon-height-ratio});
     }
 }

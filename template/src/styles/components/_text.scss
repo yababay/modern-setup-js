@@ -1,34 +1,14 @@
-.text-sm {
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-sm);
+@use 'sass:list';
+
+@mixin text-size ($size) {
+    font-size: var(--font-size-#{$size});
+    line-height: var(--line-height-#{$size});
 }
 
-.text-base {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
+@for $i from 1 through length($type-steps) {
+    $step: list.nth($type-steps, $i);
+    .text-#{$step} {
+        @include text-size(#{$step})
+    }
 }
 
-.text-md {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-md);
-}
-
-.text-lg {
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-lg);
-}
-
-.text-xl {
-    font-size: var(--font-size-xl);
-    line-height: var(--line-height-xl);
-}
-
-.text-xxl {
-    font-size: var(--font-size-xxl);
-    line-height: var(--line-height-xxl);
-}
-
-.text-xxxl {
-    font-size: var(--font-size-xxxl);
-    line-height: var(--line-height-xxxl);
-}

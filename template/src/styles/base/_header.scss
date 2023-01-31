@@ -3,7 +3,7 @@ header {
     text-align: right;
     height: $header-height;
     line-height: $header-height;
-    menu {
+    nav {
         margin: 0;
         padding: 0;
         border: 0;
@@ -21,8 +21,6 @@ header {
             }
             .logo {
                 background-image: url(img/logo.svg);
-                width: var(--line-height-md);
-                height: var(--line-height-md);
             }
             .motto {
                 display: inline-block;
@@ -31,15 +29,42 @@ header {
         }
         &:last-child {
             margin-right: 1.5rem;
+            white-space: nowrap;
             ul {
                 display: inline-block;
                 margin: 0;
                 padding: 0;
                 border: 0;
-                width: 100%;
                 li {
                     margin-right: 1rem;
                     display: inline-block;
+                }
+            }
+
+            @media screen and (min-width: calc(#{$burger-bp} + 1px)) {
+                .links {display: inline-block;}                    
+                .burger {display: none;}
+            }
+
+            @media screen and (max-width: #{$burger-bp}) {
+                .burger {display: inline-block;}                    
+                .links {
+                    display: none;
+                    position: absolute; 
+                    right: 0; 
+                    top: 0; 
+                    width: 240px; 
+                    border: 2px solid silver;
+                    margin: .5rem;
+                    padding: .5rem;
+                    border-radius: 1rem;
+                    text-align: left;
+                    background-color: white;
+                    opacity: .9;
+                    li {
+                        display: block;
+                        margin-left: 70px;
+                    }
                 }
             }
         }
