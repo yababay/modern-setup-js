@@ -1,25 +1,19 @@
 header
     nav
-        a(title="На главную" href="/")
+        a(href="/")
             .logo
             .motto  #{motto || title}
     nav
-        ul.links
+        ul
             li
-                a(title="Пользовательское соглашение" href="/eula") 
-                    i.bi.file-earmark-check
-                    | EULA
+                i.bi.file-earmark-check
+                a(href="/eula") EULA
             li
-                a(title="Примеры оформления" href="/icons")
-                    i.bi.image
-                    | Иконки
+                i.bi.image
+                a(href="/icons") Иконки
             li
-                a(title="Репозиторий на Github" href="https://github.com/yababay/vite-vanilla-tailwind-svg" target="_blank")
-                    i.bi.github
-                    | Github
-        ul.burger 
-            li
-                a(href="#menu" title="Показать меню")
-                    i.bi.list
-                    | &nbsp;
-            
+                i.bi.github
+                a(href="https://github.com/yababay/vite-vanilla-tailwind-svg" target="_blank") Github
+
+//    a(href="#menu-show")
+//        <i class="bi list burger"></i>

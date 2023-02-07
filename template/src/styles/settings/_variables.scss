@@ -21,7 +21,6 @@ $media-breakpoints: (
 
 $default-min-bp: map.get($media-breakpoints, "mobile");
 $default-max-bp: map.get($media-breakpoints, "large");
-$burger-bp: 700px;
 
 $header-height: 3rem;
 $footer-height: 2rem;

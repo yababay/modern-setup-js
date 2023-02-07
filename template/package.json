@@ -11,14 +11,11 @@
     "_husky_lint": "npx husky add .husky/pre-commit 'npx lint-staged'",
     "_husky": "npm run _husky_init && npm run _husky_test && npm run _husky_lint",
     "_git": "git add . && git commit -am first",
-    "_spoil": "echo 'export default (a: number, b: number): number => a + b * -1' > ./src/main.ts",
-    "spoil": "npm run _spoil && git commit -am spoiled",
-    "_repair": "echo 'export default (a: number, b: number): number => a + b' > ./src/main.ts",
-    "repair": "npm run _repair && git commit -am repaired",
-    "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git",
+    "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git && npm run purge",
     "test": "jest",
-    "dev": "nodemon ./index.ts",
-    "build": "tsc"
+    "dev": "cheburgen",
+    "purge": "sed -i -E '/\"_/d;/postinstall/d;/purge/d' package.json",
+    "build":  "NODE_ENV=production cheburgen"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +42,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "cheburgen": "^0.0.9"
+    "cheburgen": "^1.0.1"
   }
 }
