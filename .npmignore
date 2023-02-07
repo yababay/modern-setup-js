@@ -16,6 +16,5 @@ coverage
 .editorconfig
 
 # me
-bender-rodriguez.jpg
 .github/
 jest.config.cjs

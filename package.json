@@ -1,6 +1,6 @@
 {
   "name": "cheburgen-setup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "Server side server and generator.",
   "bin": {
