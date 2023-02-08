@@ -11,10 +11,10 @@
     "_husky_lint": "npx husky add .husky/pre-commit 'npx lint-staged'",
     "_husky": "npm run _husky_init && npm run _husky_test && npm run _husky_lint",
     "_git": "git add . && git commit -am first",
-    "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git && npm run purge",
+    "_purge": "sed -i -E '/\"_/d;/postinstall/d' package.json",
+    "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git && npm run _purge",
     "test": "jest",
     "dev": "cheburgen",
-    "purge": "sed -i -E '/\"_/d;/postinstall/d;/purge/d' package.json",
     "build":  "NODE_ENV=production cheburgen"
   },
   "keywords": [],
@@ -42,6 +42,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "cheburgen": "^1.0.1"
+    "cheburgen": "^1.1.0"
   }
 }

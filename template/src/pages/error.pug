@@ -1,12 +1,11 @@
+- var title = `Ошибка ${status || 404}`
+
 doctype
 html(lang="ru")
     include ../components/head
     body
         include ../components/header
         main
-            figure
-                img(src="/assets/images/error.svg")
-                figcaption
-                    span Ошибка #{status || 404}.&nbsp;
-                    span #{message || 'Страница не найдена.'}
+            include ../components/figure
+            +figure('error')
         include ../components/footer

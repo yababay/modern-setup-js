@@ -1,20 +1,5 @@
 @use 'sass:list';
 
-@mixin icon-size ($size) {
-    width: var(--icon-width-#{$size});
-    height: var(--icon-height-#{$size});
-}
-
-.bi.check  { background-image: url(icons/bi-check.svg) }
-.bi.image  { background-image: url(icons/bi-image.svg) }
-.bi.github { background-image: url(icons/bi-github.svg) }
-.bi.list   { background-image: url(icons/bi-list.svg) }
-.bi.x-lg   { background-image: url(icons/bi-x-lg.svg) }
-.bi.file-earmark-check { background-image: url(icons/bi-file-earmark-check.svg) }
-.bi.one-two-three { background-image: url(icons/bi-123.svg) }
-.bi.alt { background-image: url(icons/bi-alt.svg) }
-.bi.arrows-fullscreen { background-image: url(icons/bi-arrows-fullscreen.svg) }
-
 %icon {
     display: inline-block;
     vertical-align: baseline;
@@ -23,17 +8,33 @@
     content: ''
 }
 
-.bi, .logo {
-    @extend %icon;
+@mixin icon-size ($size) {
+    width: var(--icon-width-#{$size});
+    height: var(--icon-height-#{$size});
+}
+
+@mixin icon-background ($bg) {
+    background-image: url(icons/bi-#{$bg}.svg)
 }
 
 @for $i from 1 through length($type-steps) {
     $step: list.nth($type-steps, $i);
-    .text-#{$step} .bi, .bi.#{$step} {
+    .bi.#{$step} {
         @include icon-size(#{$step})
     }
 }
 
-.bi {
-    @include icon-size("base");    
+.bi::before {
+    @extend %icon;
+    @include icon-size("base")
 }
+
+.bi.check::before  { @include icon-background("check") }
+.bi.image::before  { @include icon-background("image") }
+.bi.github::before { @include icon-background("github") }
+.bi.list::before   { @include icon-background("list") }
+.bi.x::before      { @include icon-background("x-lg") }
+.bi.file-earmark-check::before { @include icon-background("file-earmark-check") }
+.bi.one-two-three::before { @include icon-background("123") }
+.bi.alt::before { @include icon-background("alt") }
+.bi.arrows-fullscreen::before { @include icon-background("arrows-fullscreen") }

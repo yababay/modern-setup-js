@@ -1,8 +1,20 @@
-$figcaption-height: 2rem;
-$figure-image-size-landscape: calc($main-min-height - $figcaption-height - 2rem);  
-$figure-image-size-portrait:  calc(100vw - 2rem); 
+$figcaption-height: var(--font-size-base);
 
-figure, figure img {
+$figure-margin: calc(var(--font-size-base) / 2);
+$figure-height-landscape: calc(var(--main-min-height) - #{$figure-margin} * 2);  
+$figure-width-landscape: calc(#{$figure-height-landscape} - #{$figcaption-height});  
+
+$figure-width-portrait: calc(100vw - #{$figure-margin});  
+$figure-height-portrait: calc(#{$figure-width-portrait} + #{$figcaption-height});  
+
+.figure-holder {
+    min-height: var(--main-min-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+figure, figure img, figcaption, figcaption a {
     margin: 0 auto;
     padding: 0;
     border: 0;
@@ -13,24 +25,32 @@ figure img {
     height: 100%;
 }
 
+figcaption, figcaption a {
+    text-align: center;
+    height: #{$figcaption-height};
+    line-height: #{$figcaption-height};
+    font-size: smaller;
+    vertical-align: middle;
+}
+
 @media (orientation: landscape) {
     figure {
-        height: $figure-image-size-landscape;
-        width:  $figure-image-size-landscape;
+        height: #{$figure-height-landscape};
+        width:  #{$figure-width-landscape};
+        img {
+            width:  #{$figure-width-landscape};
+            height: auto;
+        }
     }
 }
 
 @media (orientation: portrait) {
     figure {
-        height: $figure-image-size-portrait;
-        width:  $figure-image-size-portrait;
+        height: #{$figure-height-portrait};
+        width:  #{$figure-width-portrait};
+        img {
+            width:  #{$figure-width-portrait};
+            height: auto;
+        }
     }
-}
-
-figcaption {
-    text-align: center;
-    height: $figcaption-height;
-    line-height: $figcaption-height;
-    font-size: smaller;
-    vertical-align: top;
 }

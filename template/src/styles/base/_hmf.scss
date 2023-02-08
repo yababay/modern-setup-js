@@ -6,15 +6,15 @@ html, body, main, header, footer {
 }
 
 main {
-    min-height: $main-min-height;
+    min-height: var(--main-min-height);
 }
 
 header {
-    height: $header-height;
-    line-height: $header-height;
+    height: var(--header-height);
+    line-height: var(--header-height);
 }
 
 footer {
-    height: $footer-height;
-    line-height: $footer-height;
+    height: var(--footer-height);
+    line-height: var(--footer-height);
 }
