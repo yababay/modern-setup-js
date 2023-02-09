@@ -37,7 +37,7 @@ fs.unlinkSync(unwantedFile );
 unwantedFile = path.join(projectDir, 'LICENSE');
 fs.unlinkSync(unwantedFile );
 
-console.log("\nSuccess! Your new project is ready.");
+console.log("\nSuccess! Your new project's template is ready.");
 console.log("Please execute in your terminal:\n");
 console.log(`    cd ${projectName}`);
 console.log("    npm i");

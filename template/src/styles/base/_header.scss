@@ -35,6 +35,14 @@ header {
             height: calc(var(--brand-font-size) * #{$brand-logo-height-ratio});
             width: calc(var(--brand-font-size) * #{$brand-logo-width-ratio});
         }
+        a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            &:visited {
+                color: black;
+            }
+        }
     }
 
     #burger, #links {
