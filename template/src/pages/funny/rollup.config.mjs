@@ -1,18 +1,19 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
+import css from 'rollup-plugin-css-only';
 //import commonjs from '@rollup/plugin-commonjs'
 
 export default {
-  input: 'src/pages/funny/main.js',
+  input: 'src/pages/funny/index.js',
   output: {
     file: 'src/pages/funny/bundle.js',
     format: 'iife'
   },
   plugins: [
+    css({ output: 'bundle.css' }),
     svelte({
 
       include: 'src/pages/funny/*.svelte',
-      emitCss: true,
 
       onwarn: (warning, handler) => {
         if (warning.code === 'a11y-distracting-elements') return;
@@ -20,9 +21,7 @@ export default {
       },
 
       compilerOptions: {
-        generate: 'ssr',
-        hydratable: true,
-        customElement: false
+        generate: 'dom',
       }
     }),
 

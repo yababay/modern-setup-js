@@ -29,6 +29,7 @@
     @include icon-size("base")
 }
 
+.bi.clock::before  { @include icon-background("clock") }
 .bi.check::before  { @include icon-background("check") }
 .bi.image::before  { @include icon-background("image") }
 .bi.github::before { @include icon-background("github") }
