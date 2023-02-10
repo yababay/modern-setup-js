@@ -11,8 +11,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "push_prev": "git add . && git commit -am publish && git push origin cheburgen-pug && npm publish --access public",
-    "push": "git add . && read -p 'Введите комментарий к коммиту: ' COMMENT && git commit -am $COMMENT && npm publish --access public"
+    "push": "git add . && read -p 'Введите комментарий к коммиту: ' COMMENT && git commit -am $COMMENT && npm publish --access public && git push origin cheburgen"
   },
   "repository": {
     "type": "git",
