@@ -1,6 +1,6 @@
 {
   "name": "cheburgen-setup",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "private": false,
   "description": "Server side server and generator.",
   "bin": {
@@ -11,7 +11,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "push": "git add . && git commit -am publish && git push origin cheburgen-pug && npm publish --access public"
+    "push_prev": "git add . && git commit -am publish && git push origin cheburgen-pug && npm publish --access public",
+    "push": "git add . && read -p 'Введите комментарий к коммиту: ' COMMENT && git commit -am $COMMENT && npm publish --access public"
   },
   "repository": {
     "type": "git",
