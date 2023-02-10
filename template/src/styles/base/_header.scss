@@ -40,7 +40,7 @@ header {
             padding: 0;
             border: 0;
             &:visited {
-                color: black;
+                color: #{$basic-black};
             }
         }
     }

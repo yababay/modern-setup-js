@@ -10,6 +10,7 @@ $type-base-max: 19px;
 $type-scale-min: 1.2;
 $type-scale-max: 1.333;
 $type-base-index: list.index($type-steps, "base");
+$basic-black: #343434;
 
 $media-breakpoints: (
   small: 320px,

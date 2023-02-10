@@ -7,13 +7,6 @@ $figure-width-landscape: calc(#{$figure-height-landscape} - #{$figcaption-height
 $figure-width-portrait: calc(100vw - #{$figure-margin});  
 $figure-height-portrait: calc(#{$figure-width-portrait} + #{$figcaption-height});  
 
-.figure-holder {
-    min-height: var(--main-min-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 figure, figure img, figcaption, figcaption a {
     margin: 0 auto;
     padding: 0;

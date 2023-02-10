@@ -42,6 +42,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "cheburgen": "^1.1.0"
+    "cheburgen": "^1.2.0"
   }
 }
