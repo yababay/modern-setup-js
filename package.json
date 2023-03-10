@@ -1,6 +1,6 @@
 {
   "name": "@yababay67/modern-setup",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "private": false,
   "description": "Setup for a project with typescript and jest support",
   "bin": {
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "push": "git add . && git commit -am publish && git push origin main && npm publish --access public --tag latest"
+    "push": "git add . && git commit -am publish && git push origin lib-and-types && npm publish --access public"
   },
   "repository": {
     "type": "git",
