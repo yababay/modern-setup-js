@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import { proxyPort } from './settings'
 
 const app = express()
@@ -11,5 +11,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 app.get('/favicon.ico', (req, res) => res.sendFile(`${process.cwd()}/lib/assets/favicon.ico`))
 
-app.listen(httpPort, () => console.log(`Listening on ${httpPort}`))
+app.listen(proxyPort, () => console.log(`Listening on ${proxyPort}`))
 
