@@ -28,6 +28,11 @@ fs.renameSync(
   path.join(projectDir, '.gitignore')
 );
 
+fs.renameSync(
+  path.join(projectDir, 'env'),
+  path.join(projectDir, '.env')
+);
+
 let unwantedFile = path.join(projectDir, 'index.js');
 fs.unlinkSync(unwantedFile );
 unwantedFile = path.join(projectDir, 'LICENSE');

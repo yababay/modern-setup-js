@@ -1,4 +1,5 @@
-export enum FooBar {
-    FOO = 'foo',
-    BAR = 'bar'
+export interface IData {
+    title: string
+    value: number
 }
+
