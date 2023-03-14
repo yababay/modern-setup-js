@@ -12,7 +12,7 @@
     "_husky": "npm run _husky_init && npm run _husky_test && npm run _husky_lint",
     "_git": "git add . && git commit -am first",
     "postinstall": "npm run _tsc && npm run _ts_jest && git init && npm run _husky && npm run _git",
-    "clean": "find . -wholename './lib/*.js' -delete -o  -wholename './types/*.js' -delete",
+    "clean": "find . -wholename './lib/*.js' -delete -o  -wholename './types/*.js' -delete -o  -wholename './tests/*.js' -delete",
     "backend": "npm run clean && tsc && node ./lib/index.js",
     "test": "jest",
     "build": "tsc"
