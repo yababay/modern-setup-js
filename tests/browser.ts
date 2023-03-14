@@ -1,3 +1,7 @@
+/**
+ * Inject this into browser to test vanilla components.
+ */
+
 export function it(desc: string, fn: CallableFunction) {
       try {
         fn();
